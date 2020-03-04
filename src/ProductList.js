@@ -15,6 +15,7 @@ export default class ProductList extends Component {
               <th>First Name</th>
               <th>Last Name</th>
               <th>Username</th>
+              <th>Add To Cart</th>
             </tr>
           </thead>
           <tbody>
@@ -24,7 +25,7 @@ export default class ProductList extends Component {
                 <td>{product.productName}</td>
                 <td>{product.quantityPerUnit}</td>
                 <td>{product.unitPrice}</td>
-                <td><Button outline onClick={()=>this.props.addToCart(product)} color="success">success</Button>{' '}</td>
+                <td><Button outline onClick={()=>this.props.addToCart(product)} color="success">Add</Button>{' '}</td>
               </tr>
             ))}
           </tbody>

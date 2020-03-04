@@ -24,7 +24,13 @@ export default class App extends Component {
   };
   addToCart=(product)=>{
       let newCart = this.state.cart;
-      newCart.push({product:product,quantity:1});
+      var addedItem = newCart.find(i=>i.product.id===product.id);
+      if(addedItem){
+        addedItem.quantity+=1;
+      }
+      else{
+        newCart.push({product:product,quantity:1});
+      }
       this.setState({cart:newCart});
   }
   getProducts = categoryId => {
@@ -43,9 +49,9 @@ export default class App extends Component {
     return (
       <div className="bg-black">
         <Container>
-          <Row>
+          
             <Navi cart = {this.state.cart}></Navi>
-          </Row>
+         
           <Row>
             <Col xs="3">
               <CategoryList
